@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHERA | Shipper Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body class="dashboard-layout" style="display: flex; min-height: 100vh;">
+    <!-- SIDEBAR FOR DESKTOP -->
+    <nav class="dashboard-nav"
+        style="background-color: var(--clr-dark); width: 280px; flex-shrink: 0; display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; padding: 2rem 1.5rem;">
+        <div style="margin-bottom: 3rem;">
+            <a href="index.html" style="display: flex; align-items: center;">
+                <img src="assets/images/Phera Logo.png" alt="PHERA"
+                    style="height: 80px; filter: brightness(0) invert(1);">
+            </a>
+            <span class="badge badge-warning" data-i18n="shipper-portal"
+                style="margin-top: 1rem; display: inline-block;">Shipper Portal</span>
+        </div>
+
+        <div class="nav-links" style="display: flex; flex-direction: column; gap: 0.5rem; flex-grow: 1;">
+            <a href="#" class="nav-link active" id="tab-dashboard" data-i18n="dash-overview"
+                style="padding: 1rem; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 1rem;">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Overview
+            </a>
+            <a href="#" class="nav-link" id="tab-my-loads" data-i18n="dash-my-loads"
+                style="padding: 1rem; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 1rem;">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                My Loads
+            </a>
+            <a href="#" class="nav-link" id="tab-find-trucks" data-i18n="dash-find-trucks"
+                style="padding: 1rem; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 1rem;">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                Find Trucks
+            </a>
+        </div>
+
+        <div class="nav-actions" style="margin-top: auto; display: flex; flex-direction: column; gap: 1rem;">
+            <div class="user-badge"
+                style="width: 100%; justify-content: space-between; padding: 1rem; background: rgba(255,255,255,0.05);">
+                <span id="user-name">Shipper Name</span>
+                <span id="user-status-icon"></span>
+            </div>
+
+            <div class="language-toggle"
+                style="width: 100%; justify-content: center; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1);">
+                <button class="lang-btn active" data-lang="en" style="color: white;">EN</button>
+                <button class="lang-btn" data-lang="hi" style="color: white;">HI</button>
+            </div>
+
+            <button class="btn btn-outline text-sm logout-btn" data-i18n="btn-logout"
+                style="color: var(--clr-white); border-color: rgba(255,255,255,0.2); width: 100%;">Logout</button>
+        </div>
+    </nav>
+
+    <main class="main-dashboard-content container" style="flex-grow: 1; padding: 2rem 3rem;">
+
+        <!-- View: Dashboard Overview -->
+        <div id="view-dashboard" class="dashboard-view active">
+            <div class="section-header mb-4">
+                <h2 class="color-primary" data-i18n="shipper-welcome">Shipper Overview</h2>
+                <p class="text-gray" data-i18n="shipper-welcome-desc">Manage your shipments, track deliveries, and
+                    escrow payments.</p>
+            </div>
+
+            <div class="grid grid-3 mb-5">
+                <div class="stat-card"
+                    style="background: var(--grad-primary); border: none; box-shadow: var(--shadow-md);">
+                    <span class="stat-label" data-i18n="stat-active-ships" style="color: rgba(255,255,255,0.7);">Active
+                        Shipments</span>
+                    <span class="stat-value" id="stat-loads-count"
+                        style="color: var(--clr-white); font-size: 2.5rem;">0</span>
+                </div>
+                <div class="stat-card"
+                    style="background: var(--grad-orange); border: none; box-shadow: var(--shadow-md);">
+                    <span class="stat-label" data-i18n="stat-in-transit"
+                        style="color: rgba(255,255,255,0.9);">In-Transit (Escrow)</span>
+                    <span class="stat-value text-white" id="stat-transit-count" style="font-size: 2.5rem;">0</span>
+                </div>
+                <div class="stat-card" style="border: 1px solid var(--clr-gray-200); box-shadow: var(--shadow-sm);">
+                    <span class="stat-label" data-i18n="stat-total-spent">Total Spent (₹)</span>
+                    <span class="stat-value text-success" id="stat-spent-count" style="font-size: 2.5rem;">0</span>
+                </div>
+            </div>
+
+            <!-- Active Trips Tracking -->
+            <h3 class="mb-3 color-primary" data-i18n="dash-ship-track">Shipment Tracking</h3>
+            <div class="card p-0 mb-4">
+                <div class="table-responsive">
+                    <table class="data-table mb-0" id="active-trips-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="th-trip-id">Tracking ID</th>
+                                <th data-i18n="th-route">Route</th>
+                                <th data-i18n="th-truck">Truck Assigned</th>
+                                <th data-i18n="th-status">Status</th>
+                                <th data-i18n="th-action">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic Content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- View: My Loads -->
+        <div id="view-my-loads" class="dashboard-view" style="display: none;">
+            <div class="section-header mb-4"
+                style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 class="color-primary" data-i18n="dash-posted-loads">My Posted Loads</h2>
+                <button class="btn btn-secondary"
+                    onclick="document.getElementById('add-load-modal').style.display='flex'" data-i18n="btn-post-load">+
+                    Post New Load</button>
+            </div>
+
+            <div class="card p-0">
+                <div class="table-responsive">
+                    <table class="data-table mb-0" id="my-loads-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="th-route">Route</th>
+                                <th data-i18n="th-cargo">Cargo Type</th>
+                                <th data-i18n="th-weight">Weight</th>
+                                <th data-i18n="th-date">Date Needed</th>
+                                <th data-i18n="th-status">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic Content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- View: Find Trucks -->
+        <div id="view-find-trucks" class="dashboard-view" style="display: none;">
+            <div class="section-header mb-4">
+                <h2 class="color-primary" data-i18n="dash-discover">Discover Available Trucks</h2>
+                <p class="text-gray" data-i18n="dash-discover-desc">Search live PHERA supply data for trucks near you.
+                </p>
+            </div>
+
+            <div class="card p-4 mb-4 bg-light shadow-sm">
+                <form id="search-form" class="grid grid-3 align-center">
+                    <div class="form-group mb-0">
+                        <label data-i18n="label-pickup">Pickup City</label>
+                        <input type="text" id="search-city" class="form-control" placeholder="e.g. Delhi">
+                    </div>
+                    <div class="form-group mb-0">
+                        <label data-i18n="label-cap">Required Capacity (Tons)</label>
+                        <input type="number" id="search-cap" class="form-control" placeholder="e.g. 5">
+                    </div>
+                    <div class="form-group mb-0" style="margin-top: 1.5rem;">
+                        <button type="button" class="btn btn-secondary btn-block" onclick="searchTrucks()"
+                            data-i18n="btn-search-fleet">Search Fleet</button>
+                    </div>
+                </form>
+            </div>
+
+            <h3 class="mb-3" data-i18n="live-supply">Live Truck Supply</h3>
+            <div class="table-responsive bg-white card-radius shadow">
+                <table class="data-table mb-0" id="search-results-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th-reg">Registration</th>
+                            <th data-i18n="th-curr-city">Current City</th>
+                            <th data-i18n="th-avail-cap">Available Capacity</th>
+                            <th data-i18n="label-compat">Compatible Cargo</th>
+                            <th data-i18n="th-action">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic Results -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal: Post Load -->
+    <div id="add-load-modal" class="modal-overlay"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:2000; align-items:center; justify-content:center;">
+        <div class="card bg-white p-4" style="width: 90%; max-width: 500px; position:relative;">
+            <div class="dashboard-modal-header">
+                <h3 class="color-primary m-0" data-i18n="btn-post-load">Post Shipment Requirement</h3>
+                <button onclick="document.getElementById('add-load-modal').style.display='none'"
+                    style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+            </div>
+
+            <form id="form-add-load">
+                <div class="grid grid-2 gap-3 mb-3">
+                    <div class="form-group mb-0">
+                        <label data-i18n="label-pickup">Pickup City</label>
+                        <input type="text" id="s-pickup" class="form-control" required placeholder="From">
+                    </div>
+                    <div class="form-group mb-0">
+                        <label data-i18n="label-deliv">Delivery City</label>
+                        <input type="text" id="s-deliv" class="form-control" required placeholder="To">
+                    </div>
+                </div>
+
+                <div class="grid grid-2 gap-3 mb-3">
+                    <div class="form-group mb-0">
+                        <label data-i18n="th-cargo">Cargo Type</label>
+                        <select id="s-cargo" class="form-control" required>
+                            <option value="packaged">Packaged Goods</option>
+                            <option value="textiles">Textiles</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="food">Food/Agri</option>
+                            <option value="chemicals">Chemicals</option>
+                            <option value="fragile">Fragile Items</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label data-i18n="th-weight">Weight (Tons)</label>
+                        <input type="number" id="s-weight" class="form-control" required placeholder="e.g. 5">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label data-i18n="label-date">Pickup Date</label>
+                    <input type="date" id="s-date" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-secondary btn-block" data-i18n="btn-post-phera">Post Load to Phera
+                    Exchange</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/db.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/shipper.js"></script>
+</body>
+
+</html>

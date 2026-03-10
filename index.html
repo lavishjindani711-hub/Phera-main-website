@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHERA | Complete the Trip, Complete the Income</title>
+    <meta name="description"
+        content="PHERA is a B2B digital logistics platform focused on reducing financial losses in Indian road freight by optimising capacity utilisation and securing return loads in advance.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-panel" id="navbar"
+        style="border-radius: 0; border-top: none; border-left: none; border-right: none;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/Phera Logo.png" alt="PHERA Logo"
+                    style="height: 70px; width: auto; max-height: 100%;">
+            </a>
+
+            <div class="nav-actions">
+                <button class="btn btn-outline text-sm"
+                    onclick="document.getElementById('login-modal').style.display='flex'"
+                    data-i18n="nav-login">Login</button>
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="divider">|</span>
+                    <button class="lang-btn" data-lang="hi">HI</button>
+                </div>
+                <!-- Optional Mobile menu for later expansion -->
+                <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle menu" style="display: none;">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-layout-split"
+                style="display: grid; grid-template-columns: 1fr 1fr; align-items: center; min-height: 100vh; gap: var(--spacing-2xl); padding-top: 80px;">
+                <div class="hero-content" style="text-align: left; justify-content: flex-start; padding-bottom: 0;">
+                    <div class="hero-text-wrapper" style="margin: 0; max-width: 100%;">
+                        <h1 class="hero-headline text-gradient" data-i18n="hero-headline"
+                            style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: var(--spacing-lg);">
+                            Har Phera,<br>Kamai Bhara.</h1>
+                        <p class="hero-subhead" data-i18n="hero-subhead"
+                            style="font-size: clamp(1.125rem, 2vw, 1.5rem); color: var(--clr-gray-600); max-width: 90%;">
+                            PHERA helps truck owners earn on both outward and return journeys.</p>
+                        <div class="hero-cta-group"
+                            style="justify-content: flex-start; margin-top: var(--spacing-2xl);">
+                            <a href="#register" class="btn btn-primary" data-i18n="btn-truck-owner">I am a Truck
+                                Owner</a>
+                            <a href="#register" class="btn btn-secondary" data-i18n="btn-shipper">I am a Shipper</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-animation-container"
+                    style="display:flex; justify-content:center; align-items:center; height: 100%; position: relative;">
+                    <!-- Floating decorative elements behind the logo -->
+                    <div
+                        style="position: absolute; top: 10%; right: 10%; width: 150px; height: 150px; background: var(--grad-orange); border-radius: 50%; filter: blur(60px); opacity: 0.5; z-index: -1; animation: float 6s ease-in-out infinite;">
+                    </div>
+                    <div
+                        style="position: absolute; bottom: 10%; left: 10%; width: 200px; height: 200px; background: var(--grad-primary); border-radius: 50%; filter: blur(80px); opacity: 0.4; z-index: -1; animation: float 8s ease-in-out infinite reverse;">
+                    </div>
+
+                    <img src="assets/images/Phera Logo.png" alt="PHERA"
+                        style="max-height: 400px; width: auto; max-width: 100%; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PROBLEM SECTION -->
+        <section class="problem-section py-section" id="problem"
+            style="background: var(--clr-gray-50); position: relative; overflow: hidden;">
+            <!-- Subtle background accent -->
+            <div
+                style="position: absolute; top: 0; right: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(239,68,68,0.05) 0%, transparent 70%); border-radius: 50%; pointer-events: none;">
+            </div>
+
+            <div class="container relative">
+                <div class="section-header text-center">
+                    <span class="badge"
+                        style="background: rgba(239,68,68,0.1); color: var(--clr-danger); padding: 0.5rem 1rem; border-radius: 2rem; font-weight: 600; margin-bottom: 1rem; display: inline-block;">The
+                        Challenge</span>
+                    <h2 class="section-title text-danger" data-i18n="problem-headline"
+                        style="font-size: clamp(2rem, 4vw, 3rem);">Empty Return = Direct Loss</h2>
+                    <p class="section-subtitle" data-i18n="problem-subhead">The reality of Indian logistics today</p>
+                </div>
+
+                <div class="grid grid-4 problem-grid">
+                    <div class="card problem-card" style="border-top: 4px solid var(--clr-danger);">
+                        <div class="icon-wrapper icon-danger"
+                            style="background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.05));">
+                            <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--clr-danger)" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="3" width="15" height="13"></rect>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                <line x1="10" y1="8" x2="10" y2="11"></line>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" data-i18n="problem-empty-truck"
+                            style="margin-bottom: 0.5rem; font-size: 1.25rem;">Trucks Return Empty</h3>
+                        <p class="card-text text-gray" data-i18n="problem-empty-truck-desc">Over 40% of standard trips
+                            have empty
+                            return legs.</p>
+                    </div>
+
+                    <div class="card problem-card" style="border-top: 4px solid var(--clr-warning);">
+                        <div class="icon-wrapper icon-danger"
+                            style="background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.05));">
+                            <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--clr-warning)" stroke-width="2"
+                                fill="none" class="feather feather-clock">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" data-i18n="problem-wait-time"
+                            style="margin-bottom: 0.5rem; font-size: 1.25rem;">2-3 Days Waiting</h3>
+                        <p class="card-text text-gray" data-i18n="problem-wait-time-desc">Owners wait days in transport
+                            nagars for
+                            return loads.</p>
+                    </div>
+
+                    <div class="card problem-card" style="border-top: 4px solid var(--clr-danger);">
+                        <div class="icon-wrapper icon-danger"
+                            style="background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.05));">
+                            <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--clr-danger)" stroke-width="2"
+                                fill="none">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" data-i18n="problem-loss"
+                            style="margin-bottom: 0.5rem; font-size: 1.25rem;">Money Wasted</h3>
+                        <p class="card-text text-gray" data-i18n="problem-loss-desc">Half-loaded trips kill profit
+                            margins
+                            significantly.</p>
+                    </div>
+
+                    <div class="card problem-card" style="border-top: 4px solid var(--clr-warning);">
+                        <div class="icon-wrapper icon-danger"
+                            style="background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.05));">
+                            <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--clr-warning)" stroke-width="2"
+                                fill="none">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" data-i18n="problem-broken"
+                            style="margin-bottom: 0.5rem; font-size: 1.25rem;">Broken Process</h3>
+                        <p class="card-text text-gray" data-i18n="problem-broken-desc">No structure for planning
+                            end-to-end trip
+                            capacity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SOLUTION SECTION -->
+        <section class="solution-section py-section text-white" id="solution"
+            style="background: var(--grad-primary); position: relative; overflow: hidden;">
+            <div
+                style="position: absolute; bottom: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 60%); border-radius: 50%; pointer-events: none;">
+            </div>
+
+            <div class="container relative">
+                <div class="grid grid-2 align-center" style="gap: var(--spacing-4xl);">
+                    <div class="solution-content">
+                        <span class="badge"
+                            style="background: rgba(59,130,246,0.2); color: #93c5fd; padding: 0.5rem 1rem; border-radius: 2rem; font-weight: 600; margin-bottom: 1rem; display: inline-block;">The
+                            Solution</span>
+                        <h2 class="section-title text-gradient" data-i18n="solution-headline"
+                            style="margin-bottom: var(--spacing-xl);">The PHERA Solution</h2>
+                        <div class="solution-list">
+                            <div class="solution-item glass-panel"
+                                style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: inherit; border-radius: var(--radius-md);">
+                                <span class="check-icon"
+                                    style="background: var(--grad-orange); box-shadow: var(--shadow-glow-orange);">✓</span>
+                                <div>
+                                    <h4 data-i18n="sol-1-title"
+                                        style="color: var(--clr-white); margin-bottom: 0.25rem;">Outbound Capacity
+                                        Optimisation</h4>
+                                    <p data-i18n="sol-1-desc" style="color: var(--clr-gray-300); margin: 0;">Fill every
+                                        inch of unused truck space to maximize initial
+                                        revenue.</p>
+                                </div>
+                            </div>
+                            <div class="solution-item glass-panel"
+                                style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: inherit; border-radius: var(--radius-md);">
+                                <span class="check-icon"
+                                    style="background: var(--grad-orange); box-shadow: var(--shadow-glow-orange);">✓</span>
+                                <div>
+                                    <h4 data-i18n="sol-2-title"
+                                        style="color: var(--clr-white); margin-bottom: 0.25rem;">Advance Return Load
+                                        Booking</h4>
+                                    <p data-i18n="sol-2-desc" style="color: var(--clr-gray-300); margin: 0;">Secure your
+                                        return journey before you even start your
+                                        outward trip.</p>
+                                </div>
+                            </div>
+                            <div class="solution-item glass-panel"
+                                style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: inherit; border-radius: var(--radius-md);">
+                                <span class="check-icon"
+                                    style="background: var(--grad-orange); box-shadow: var(--shadow-glow-orange);">✓</span>
+                                <div>
+                                    <h4 data-i18n="sol-3-title"
+                                        style="color: var(--clr-white); margin-bottom: 0.25rem;">Safe Cargo Bundling
+                                    </h4>
+                                    <p data-i18n="sol-3-desc" style="color: var(--clr-gray-300); margin: 0;">Smart
+                                        matching of compatible goods for safe transit.</p>
+                                </div>
+                            </div>
+                            <div class="solution-item glass-panel"
+                                style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: inherit; border-radius: var(--radius-md);">
+                                <span class="check-icon"
+                                    style="background: var(--grad-orange); box-shadow: var(--shadow-glow-orange);">✓</span>
+                                <div>
+                                    <h4 data-i18n="sol-4-title"
+                                        style="color: var(--clr-white); margin-bottom: 0.25rem;">Zero Idle Waiting</h4>
+                                    <p data-i18n="sol-4-desc" style="color: var(--clr-gray-300); margin: 0;">Keep wheels
+                                        moving. More trips, higher monthly income.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-visual">
+                        <div class="efficiency-circle"
+                            style="background: radial-gradient(circle, rgba(249,115,22,0.2) 0%, transparent 70%); border: 8px solid var(--clr-secondary); box-shadow: 0 0 50px rgba(249,115,22,0.5);">
+                            <div class="efficiency-text">
+                                <span class="number text-gradient" style="font-size: 4rem;">100%</span>
+                                <span class="label" data-i18n="sol-visual-text"
+                                    style="color: var(--clr-white); font-weight: 600;">Trip Efficiency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. HOW PHERA WORKS -->
+        <section class="how-it-works py-section" id="how-it-works">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title" data-i18n="hiw-headline">How Phera Works</h2>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-target="flow-owner" data-i18n="tab-owner">For Truck
+                            Owners</button>
+                        <button class="tab-btn" data-target="flow-shipper" data-i18n="tab-shipper">For Shippers</button>
+                    </div>
+
+                    <div class="tab-content active" id="flow-owner">
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-num">1</div>
+                                <h4 data-i18n="step-o1-title">Register Truck</h4>
+                                <p data-i18n="step-o1-desc">Simple KYC and vehicle verification.</p>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-num">2</div>
+                                <h4 data-i18n="step-o2-title">Add Route & Capacity</h4>
+                                <p data-i18n="step-o2-desc">Tell us where you are going and your vehicle type.</p>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-num">3</div>
+                                <h4 data-i18n="step-o3-title">Get Matched Load</h4>
+                                <p data-i18n="step-o3-desc">Instant booking for outbound or return legs.</p>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-num">4</div>
+                                <h4 data-i18n="step-o4-title">Complete & Get Paid</h4>
+                                <p data-i18n="step-o4-desc">Finish the PHERA. Receive secure payment instantly.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="flow-shipper">
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-num">1</div>
+                                <h4 data-i18n="step-s1-title">Enter Details</h4>
+                                <p data-i18n="step-s1-desc">Add route, material type, and weight.</p>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-num">2</div>
+                                <h4 data-i18n="step-s2-title">View Trucks</h4>
+                                <p data-i18n="step-s2-desc">See available verified trucks in your area.</p>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-num">3</div>
+                                <h4 data-i18n="step-s3-title">Confirm Booking</h4>
+                                <p data-i18n="step-s3-desc">Lock the price and finalize the manifest.</p>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-num">4</div>
+                                <h4 data-i18n="step-s4-title">Track Delivery</h4>
+                                <p data-i18n="step-s4-desc">Live GPS tracking until safe offloading.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TRUST & SAFETY STACK -->
+        <section class="trust-section py-section bg-light border-top-subtle" id="trust">
+            <div class="container pb-4">
+                <div class="section-header text-center">
+                    <h2 class="section-title" data-i18n="trust-headline">Safe. Verified. Secure.</h2>
+                    <p class="section-subtitle" data-i18n="trust-subhead">Institutional grade security for everyday
+                        logistics.</p>
+                </div>
+
+                <div class="grid grid-3 max-width-1000 mx-auto layout-gap-lg">
+                    <div class="trust-feature card"
+                        style="text-align: center; border-bottom: 4px solid var(--clr-primary);">
+                        <div class="icon-shield bg-white"
+                            style="color: var(--clr-primary); box-shadow: var(--shadow-md);">
+                            <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="trust-1-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Cargo Insurance
+                        </h4>
+                        <p data-i18n="trust-1-desc" class="text-gray">Complete protection against transit damage.</p>
+                    </div>
+
+                    <div class="trust-feature card"
+                        style="text-align: center; border-bottom: 4px solid var(--clr-secondary);">
+                        <div class="icon-shield bg-white"
+                            style="color: var(--clr-secondary); box-shadow: var(--shadow-md);">
+                            <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="trust-2-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">GPS Live Tracking
+                        </h4>
+                        <p data-i18n="trust-2-desc" class="text-gray">100% route visibility from pickup to drop.</p>
+                    </div>
+
+                    <div class="trust-feature card"
+                        style="text-align: center; border-bottom: 4px solid var(--clr-info);">
+                        <div class="icon-shield bg-white" style="color: var(--clr-info); box-shadow: var(--shadow-md);">
+                            <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <polyline points="16 11 18 13 22 9"></polyline>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="trust-3-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Driver
+                            Verification</h4>
+                        <p data-i18n="trust-3-desc" class="text-gray">Aadhar and License verified fleet operators.</p>
+                    </div>
+
+                    <div class="trust-feature card"
+                        style="text-align: center; border-bottom: 4px solid var(--clr-success);">
+                        <div class="icon-shield bg-white"
+                            style="color: var(--clr-success); box-shadow: var(--shadow-md);">
+                            <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                <line x1="2" y1="10" x2="22" y2="10"></line>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="trust-4-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Escrow Payment
+                        </h4>
+                        <p data-i18n="trust-4-desc" class="text-gray">Secure funds released only on delivery proof.</p>
+                    </div>
+
+                    <div class="trust-feature card"
+                        style="text-align: center; border-bottom: 4px solid var(--clr-accent);">
+                        <div class="icon-shield bg-white"
+                            style="color: var(--clr-accent); box-shadow: var(--shadow-md);">
+                            <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="trust-5-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Compatibility
+                            Filter</h4>
+                        <p data-i18n="trust-5-desc" class="text-gray">Safe load matching (e.g. food never mixed with
+                            chemicals).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. BENEFITS SECTION -->
+        <section class="benefits-section py-section" id="benefits">
+            <div class="container">
+                <div class="grid grid-2 layout-gap-xl">
+                    <div class="benefit-box bg-white shadow card-radius">
+                        <h3 class="box-title color-primary mb-3" data-i18n="ben-owner-headline">Why Owners Choose Us
+                        </h3>
+                        <ul class="benefit-list">
+                            <li><span class="icon-checked">✓</span> <span data-i18n="ben-o1">Less waiting time at
+                                    transport hubs</span></li>
+                            <li><span class="icon-checked">✓</span> <span data-i18n="ben-o2">Fewer empty returns</span>
+                            </li>
+                            <li><span class="icon-checked">✓</span> <span data-i18n="ben-o3">Higher earnings per round
+                                    trip</span></li>
+                            <li><span class="icon-checked">✓</span> <span data-i18n="ben-o4">Secure and transparent
+                                    digital payment</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="benefit-box bg-white shadow card-radius">
+                        <h3 class="box-title color-orange mb-3" data-i18n="ben-shipper-headline">Why Shippers Trust Us
+                        </h3>
+                        <ul class="benefit-list">
+                            <li><span class="icon-checked">✓</span> <span data-i18n="ben-s1">Reliable and verified
+                                    transport</span></li>
+                            <li><span class="icon-checked">✓</span> <span data-i18n="ben-s2">Easy advance booking
+                                    capabilities</span></li>
+                            <li><span class="icon-checked">✓</span> <span data-i18n="ben-s3">Real-time GPS
+                                    tracking</span></li>
+                            <li><span class="icon-checked">✓</span> <span data-i18n="ben-s4">100% verified drivers and
+                                    documentation</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. COMPANY SECTION -->
+        <section class="company-section py-section bg-dark text-white" id="company">
+            <div class="container">
+                <div class="grid grid-2 align-start layout-gap-xl">
+                    <div class="company-about">
+                        <img src="assets/images/Phera Logo.png" alt="PHERA Logo" class="footer-logo mb-3"
+                            style="filter: brightness(0) invert(1); height: 40px; width: auto;">
+                        <h3 class="mb-2" data-i18n="comp-name-title">What is PHERA?</h3>
+                        <p class="mb-4 text-gray" data-i18n="comp-name-desc">PHERA means a complete round trip in Indian
+                            transport terminology. We believe a trip is only complete when both outward and return
+                            journeys generate revenue.</p>
+
+                        <h3 class="mb-2" data-i18n="comp-vision-title">Our Vision</h3>
+                        <p class="mb-4 text-gray" data-i18n="comp-vision-desc">Build a more efficient and sustainable
+                            logistics ecosystem in India where every truck trip is fully utilised.</p>
+
+                        <h3 class="mb-2" data-i18n="comp-mission-title">Our Mission</h3>
+                        <p class="text-gray" data-i18n="comp-mission-desc">Minimise financial losses by enabling planned
+                            capacity utilisation supported by secure technology and transparent processes.</p>
+                    </div>
+
+                    <div class="company-team bg-darker p-4 card-radius border-subtle">
+                        <h3 class="mb-4 color-orange" data-i18n="comp-team-title">Management Structure</h3>
+                        <div class="team-list">
+                            <div class="team-role">
+                                <h4 class="role-title text-white">CEO</h4>
+                                <p class="role-desc text-gray">Strategy & Partnerships</p>
+                            </div>
+                            <div class="team-role">
+                                <h4 class="role-title text-white">COO</h4>
+                                <p class="role-desc text-gray">Operations & Route Execution</p>
+                            </div>
+                            <div class="team-role">
+                                <h4 class="role-title text-white">CMO</h4>
+                                <p class="role-desc text-gray">Market Expansion & Communication</p>
+                            </div>
+                            <div class="team-role">
+                                <h4 class="role-title text-white">CFO</h4>
+                                <p class="role-desc text-gray">Financial & Escrow Systems</p>
+                            </div>
+                            <div class="team-role">
+                                <h4 class="role-title text-white">Technology Head</h4>
+                                <p class="role-desc text-gray">Platform Development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. SIMPLE REGISTRATION SECTION -->
+        <section class="registration-section py-section" id="register"
+            style="background: var(--clr-gray-100); position: relative; overflow: hidden;">
+            <div
+                style="position: absolute; top: -10%; right: -10%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 60%); border-radius: 50%; pointer-events: none;">
+            </div>
+
+            <div class="container max-width-800 mx-auto relative">
+                <div class="registration-card bg-white shadow-lg card-radius p-5"
+                    style="border-top: 6px solid var(--clr-secondary);">
+                    <div class="section-header text-center mb-4">
+                        <span class="badge"
+                            style="background: rgba(239,68,68,0.1); color: var(--clr-danger); padding: 0.5rem 1rem; border-radius: 2rem; font-weight: 600; margin-bottom: 1rem; display: inline-block;">Join
+                            the Network</span>
+                        <h2 class="section-title text-gradient" data-i18n="reg-headline" style="margin-bottom: 0.5rem;">
+                            Start Your Phera</h2>
+                        <p class="section-subtitle" data-i18n="reg-subhead">Join our platform today and eliminate empty
+                            returns.</p>
+                    </div>
+
+                    <form id="reg-form" class="reg-form">
+                        <div class="form-group">
+                            <label for="name" data-i18n="form-name">Name</label>
+                            <input type="text" id="name" class="form-control" required
+                                placeholder="Enter your full name"
+                                style="background: var(--clr-gray-50); border: 1px solid var(--clr-gray-200); box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); border-radius: var(--radius-sm); padding: 1rem;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" data-i18n="form-phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required placeholder="+91"
+                                style="background: var(--clr-gray-50); border: 1px solid var(--clr-gray-200); box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); border-radius: var(--radius-sm); padding: 1rem;">
+                        </div>
+
+                        <div class="grid grid-2 gap-3">
+                            <div class="form-group">
+                                <label for="city" data-i18n="form-city">City</label>
+                                <input type="text" id="city" class="form-control" required
+                                    style="background: var(--clr-gray-50); border: 1px solid var(--clr-gray-200); box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); border-radius: var(--radius-sm); padding: 1rem;">
+                            </div>
+                            <div class="form-group">
+                                <label for="type" data-i18n="form-type">I am a</label>
+                                <select id="type" class="form-control"
+                                    style="background: var(--clr-gray-50); border: 1px solid var(--clr-gray-200); box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); border-radius: var(--radius-sm); padding: 1rem; cursor: pointer;">
+                                    <option value="owner" data-i18n="form-type-opt1">Truck Owner</option>
+                                    <option value="shipper" data-i18n="form-type-opt2">Shipper</option>
+                                    <option value="broker" data-i18n="form-type-opt3">Fleet Operator</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary btn-block btn-large mt-3" data-i18n="btn-submit"
+                            style="width: 100%;">Register Now</button>
+                    </form>
+
+                    <div class="contact-alternatives mt-4 text-center">
+                        <p class="text-sm text-gray mb-3" data-i18n="contact-or">Or connect directly via</p>
+                        <div class="contact-buttons justify-center" style="gap: 1rem;">
+                            <a href="#" class="btn btn-outline btn-whatsapp">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                    fill="none">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                    </path>
+                                </svg>
+                                WhatsApp
+                            </a>
+                            <a href="#" class="btn btn-outline">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                    fill="none">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                                Call Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-darker text-white pt-5 pb-3">
+        <div class="container">
+            <div class="footer-bottom mt-5 text-center text-sm text-gray pt-3 border-top-subtle">
+                <p>&copy; 2026 PHERA Logistics Technologies. All rights reserved.</p>
+                <div class="footer-links mt-2">
+                    <a href="#" class="text-gray mx-2" data-i18n="foot-terms">Terms & Conditions</a>
+                    <a href="#" class="text-gray mx-2" data-i18n="foot-privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal-overlay"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:2000; align-items:center; justify-content:center;">
+        <div class="card bg-white p-4 max-width-800" style="width: 90%; max-width: 400px; position:relative;">
+            <button onclick="document.getElementById('login-modal').style.display='none'"
+                style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+            <h3 class="mb-3 color-primary" data-i18n="login-title">Login to Phera</h3>
+            <p class="text-sm text-gray mb-3" data-i18n="login-desc">Enter your registered mobile number</p>
+            <div
+                style="background-color: var(--clr-gray-100); padding: 0.75rem; border-radius: 4px; margin-bottom: 1rem; font-size: 0.85rem;">
+                <strong>Demo Login IDs:</strong><br>
+                Truck Owner: <code>9876543210</code><br>
+                Shipper: <code>9123456780</code><br>
+                Admin: <code>admin</code>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="login-phone" class="form-control" placeholder="Mobile Number">
+            </div>
+            <button id="login-btn" class="btn btn-primary btn-block mt-2" data-i18n="btn-login">Login</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/db.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
