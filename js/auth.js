@@ -64,40 +64,90 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'index.html';
         });
     });
+
+    // ----------------------------------------------------------------------
+    // Mobile Menu Toggle Logic (Global)
+    // ----------------------------------------------------------------------
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    if (mobileMenuBtn && mobileMenuOverlay) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.toggle('open');
+            if (mobileMenuOverlay.classList.contains('open')) {
+                mobileMenuBtn.innerHTML = '✕';
+            } else {
+                mobileMenuBtn.innerHTML = '☰';
+            }
+        });
+
+        mobileMenuOverlay.querySelectorAll('.global-nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenuOverlay.classList.remove('open');
+                mobileMenuBtn.innerHTML = '☰';
+            });
+        });
+    }
 });
 
 function updateAuthUI() {
     const user = pheraDB.getCurrentUser();
-    const ctaGroup = document.querySelector('.hero-cta-group'); // On index
 
+    // 1. Update Hero CTAs if on index
+    const ctaGroup = document.querySelector('.hero-cta-group');
     if (user && ctaGroup) {
-        // If logged in on homepage, swap CTAs for Dashboard button
-        ctaGroup.innerHTML = `<button class="btn btn-primary btn-large" onclick="redirectUser('${user.role}')">Go to ${user.role.charAt(0).toUpperCase() + user.role.slice(1)} Dashboard</button>`;
+        ctaGroup.innerHTML = `<button class="btn btn-primary btn-large" onclick="redirectUser('${user.role}')" style="text-decoration:none;">Go to Dashboard</button>`;
+    }
 
-        // Add logout to Nav
-        const navActions = document.querySelector('.nav-actions');
+    // 2. Update Global Auth Container
+    const authContainer = document.getElementById('global-auth-container');
+    if (authContainer) {
+        if (user) {
+            authContainer.innerHTML = `
+                <div class="profile-dropdown-container">
+                    <button class="profile-trigger" id="profile-btn">
+                        ${user.name || user.phone || 'User'}
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="profile-dropdown" id="profile-menu">
+                        <a href="#" class="profile-dropdown-item" id="nav-dash-link">Dashboard</a>
+                        <a href="#" class="profile-dropdown-item" id="nav-logout-btn">Logout</a>
+                    </div>
+                </div>
+            `;
 
-        // Remove existing if any to avoid duplicates
-        const existingLogout = navActions.querySelector('.logout-btn');
-        if (existingLogout) existingLogout.remove();
+            // Re-attach event listeners
+            document.getElementById('nav-dash-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                redirectUser(user.role);
+            });
+            document.getElementById('nav-logout-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                pheraDB.logout();
+                window.location.reload();
+            });
 
-        const logoutBtn = document.createElement('button');
-        logoutBtn.className = 'btn btn-outline text-sm logout-btn';
-        logoutBtn.style.padding = '0.25rem 0.5rem';
-        logoutBtn.innerText = 'Logout';
-        logoutBtn.addEventListener('click', () => { pheraDB.logout(); window.location.reload(); });
-        navActions.insertBefore(logoutBtn, navActions.firstChild);
+            // Toggle dropdown logic
+            const profileBtn = document.getElementById('profile-btn');
+            const profileMenu = document.getElementById('profile-menu');
+            profileBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                profileMenu.classList.toggle('show');
+            });
 
-        // Hide login button
-        const loginBtn = navActions.querySelector('button[onclick*="login-modal"]');
-        if (loginBtn) loginBtn.style.display = 'none';
-
-    } else {
-        // If not logged in, ensure logout is hidden
-        const navActions = document.querySelector('.nav-actions');
-        if (navActions) {
-            const logout = navActions.querySelector('.logout-btn');
-            if (logout) logout.remove();
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                    profileMenu.classList.remove('show');
+                }
+            });
+        } else {
+            // Not logged in
+            authContainer.innerHTML = `
+                <button class="btn btn-outline text-sm"
+                    onclick="document.getElementById('login-modal').style.display='flex'"
+                    data-i18n="nav-login" style="color: var(--clr-white); border-color: rgba(255,255,255,0.3);">Login</button>
+            `;
         }
     }
 }

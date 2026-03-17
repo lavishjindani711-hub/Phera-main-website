@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Setup UI
-    document.getElementById('user-name').innerText = user.name;
+    const userNameEl = document.getElementById('user-name');
+    if (userNameEl) userNameEl.innerText = user.name;
 
     // 3. Setup Navigation
     const navLinks = document.querySelectorAll('.nav-link');

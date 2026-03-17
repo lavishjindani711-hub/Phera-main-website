@@ -12,17 +12,60 @@
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
-<body class="dashboard-layout" style="display: flex; min-height: 100vh;">
+<body class="dashboard-layout" style="display: flex; min-height: 100vh; padding-top: 70px;">
+    <!-- Global Navigation Header -->
+    <header class="global-header" id="global-header">
+        <div class="container header-container">
+            <!-- LEFT: Logo -->
+            <a href="index.html" class="global-logo">
+                <img src="assets/images/Phera Logo.png" alt="PHERA Logo">
+            </a>
+
+            <!-- CENTER: Navigation Menu -->
+            <nav class="global-nav-menu">
+                <a href="index.html#hero" class="global-nav-item" data-i18n="nav-home">Home</a>
+                <a href="index.html#problem" class="global-nav-item" data-i18n="nav-about">About Us</a>
+                <a href="index.html#solution" class="global-nav-item" data-i18n="nav-services">Services</a>
+                <a href="index.html#trust" class="global-nav-item" data-i18n="nav-collaborators">Collaborators</a>
+            </nav>
+
+            <!-- RIGHT: Actions -->
+            <div class="global-header-right">
+                <div class="language-toggle"
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-full); padding: 2px;">
+                    <button class="lang-btn active" data-lang="en"
+                        style="color: var(--clr-white); border-radius: var(--radius-full); padding: 0.25rem 0.75rem;">EN</button>
+                    <button class="lang-btn" data-lang="hi"
+                        style="color: var(--clr-white); border-radius: var(--radius-full); padding: 0.25rem 0.75rem;">HI</button>
+                </div>
+
+                <!-- Auth Container (managed by JS) -->
+                <div id="global-auth-container">
+                    <!-- Injected by auth.js -->
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="hamburger-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <a href="index.html#hero" class="global-nav-item mobile-item" data-i18n="nav-home">Home</a>
+        <a href="index.html#problem" class="global-nav-item mobile-item" data-i18n="nav-about">About Us</a>
+        <a href="index.html#solution" class="global-nav-item mobile-item" data-i18n="nav-services">Services</a>
+        <a href="index.html#trust" class="global-nav-item mobile-item" data-i18n="nav-collaborators">Collaborators</a>
+    </div>
+
     <!-- SIDEBAR FOR DESKTOP -->
     <nav class="dashboard-nav"
-        style="background-color: var(--clr-darker); width: 280px; flex-shrink: 0; display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; padding: 2rem 1.5rem;">
-        <div style="margin-bottom: 3rem;">
-            <a href="index.html" style="display: flex; align-items: center;">
-                <img src="assets/images/Phera Logo.png" alt="PHERA"
-                    style="height: 80px; filter: brightness(0) invert(1);">
-            </a>
+        style="background-color: var(--clr-darker); width: 280px; flex-shrink: 0; display: flex; flex-direction: column; position: sticky; top: 70px; height: calc(100vh - 70px); padding: 2rem 1.5rem; z-index: 100;">
+        <div style="margin-bottom: 2rem;">
             <span class="badge badge-danger" data-i18n="admin-portal"
-                style="margin-top: 1rem; display: inline-block;">Admin Panel</span>
+                style="display: inline-block; font-size: 1rem; padding: 0.5rem 1rem;">Admin Panel</span>
         </div>
 
         <div class="nav-links" style="display: flex; flex-direction: column; gap: 0.5rem; flex-grow: 1;">
@@ -54,21 +97,6 @@
             </a>
         </div>
 
-        <div class="nav-actions" style="margin-top: auto; display: flex; flex-direction: column; gap: 1rem;">
-            <div class="user-badge"
-                style="width: 100%; justify-content: space-between; padding: 1rem; background: rgba(220, 53, 69, 0.2); color: #ffcccc;">
-                <span id="user-name">Admin</span>
-            </div>
-
-            <div class="language-toggle"
-                style="width: 100%; justify-content: center; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1);">
-                <button class="lang-btn active" data-lang="en" style="color: white;">EN</button>
-                <button class="lang-btn" data-lang="hi" style="color: white;">HI</button>
-            </div>
-
-            <button class="btn btn-outline text-sm logout-btn" data-i18n="btn-logout"
-                style="color: var(--clr-white); border-color: rgba(255,255,255,0.2); width: 100%;">Logout</button>
-        </div>
     </nav>
 
     <main class="main-dashboard-content container" style="flex-grow: 1; padding: 2rem 3rem;">

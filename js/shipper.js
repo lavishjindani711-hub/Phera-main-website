@@ -10,8 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Setup UI
-    document.getElementById('user-name').innerText = user.name;
-    document.getElementById('user-status-icon').innerHTML = user.verified ? '✅ Verified' : '⏳ Pending Verification';
+    const userNameEl = document.getElementById('user-name');
+    if (userNameEl) userNameEl.innerText = user.name;
+    const userStatusEl = document.getElementById('user-status-icon');
+    if (userStatusEl) userStatusEl.innerHTML = user.verified ? '✅ Verified' : '⏳ Pending Verification';
 
     // 3. Setup Navigation
     const navLinks = document.querySelectorAll('.nav-link');

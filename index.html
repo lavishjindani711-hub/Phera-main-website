@@ -20,35 +20,54 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar glass-panel" id="navbar"
-        style="border-radius: 0; border-top: none; border-left: none; border-right: none;">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/Phera Logo.png" alt="PHERA Logo"
-                    style="height: 70px; width: auto; max-height: 100%;">
+    <!-- Global Navigation Header -->
+    <header class="global-header" id="global-header">
+        <div class="container header-container">
+            <!-- LEFT: Logo -->
+            <a href="index.html" class="global-logo">
+                <img src="assets/images/Phera Logo.png" alt="PHERA Logo">
             </a>
 
-            <div class="nav-actions">
-                <button class="btn btn-outline text-sm"
-                    onclick="document.getElementById('login-modal').style.display='flex'"
-                    data-i18n="nav-login">Login</button>
-                <div class="language-toggle">
-                    <button class="lang-btn active" data-lang="en">EN</button>
-                    <span class="divider">|</span>
-                    <button class="lang-btn" data-lang="hi">HI</button>
+            <!-- CENTER: Navigation Menu -->
+            <nav class="global-nav-menu">
+                <a href="index.html#hero" class="global-nav-item active" data-i18n="nav-home">Home</a>
+                <a href="index.html#problem" class="global-nav-item" data-i18n="nav-about">About Us</a>
+                <a href="index.html#solution" class="global-nav-item" data-i18n="nav-services">Services</a>
+                <a href="index.html#trust" class="global-nav-item" data-i18n="nav-collaborators">Collaborators</a>
+            </nav>
+
+            <!-- RIGHT: Actions -->
+            <div class="global-header-right">
+                <div class="language-toggle"
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-full); padding: 2px;">
+                    <button class="lang-btn active" data-lang="en"
+                        style="color: var(--clr-white); border-radius: var(--radius-full); padding: 0.25rem 0.75rem;">EN</button>
+                    <button class="lang-btn" data-lang="hi"
+                        style="color: var(--clr-white); border-radius: var(--radius-full); padding: 0.25rem 0.75rem;">HI</button>
                 </div>
-                <!-- Optional Mobile menu for later expansion -->
-                <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle menu" style="display: none;">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
+
+                <!-- Auth Container (managed by JS) -->
+                <div id="global-auth-container">
+                    <button class="btn btn-outline text-sm"
+                        onclick="document.getElementById('login-modal').style.display='flex'" data-i18n="nav-login"
+                        style="color: var(--clr-white); border-color: rgba(255,255,255,0.3);">Login</button>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="hamburger-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                    ☰
                 </button>
             </div>
         </div>
-    </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <a href="index.html#hero" class="global-nav-item mobile-item" data-i18n="nav-home">Home</a>
+        <a href="index.html#problem" class="global-nav-item mobile-item" data-i18n="nav-about">About Us</a>
+        <a href="index.html#solution" class="global-nav-item mobile-item" data-i18n="nav-services">Services</a>
+        <a href="index.html#trust" class="global-nav-item mobile-item" data-i18n="nav-collaborators">Collaborators</a>
+    </div>
 
     <main>
         <!-- 1. HERO SECTION -->
