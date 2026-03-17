@@ -3,7 +3,7 @@
  */
 const translations = {
     en: {
-        "hero-headline": "Turn Empty Miles Into<br><span class=\"highlight\">Guaranteed Profit.</span>",
+        "hero-headline": "Complete the Trip.<br><span class=\"highlight\">Complete the Income.</span>",
         "hero-subhead": "PHERA empowers truck owners to secure return loads and shippers to find reliable transport, instantly.",
         "btn-truck-owner": "I am a Truck Owner",
         "btn-shipper": "I am a Shipper",
@@ -185,7 +185,7 @@ const translations = {
         "all-ships": "Macro Demand Data"
     },
     hi: {
-        "hero-headline": "खाली मील को मुनाफे में बदलें।<br><span class=\"highlight\">गारंटी के साथ।</span>",
+        "hero-headline": "फेरा पूरा करें।<br><span class=\"highlight\">कमाई पूरी करें।</span>",
         "hero-subhead": "हर फेरा कमाई भरा—वापसी का लोड पहले पक्का करें। PHERA ट्रांसपोर्टर्स और शिपर्स को एक प्रमाणित डिजिटल नेटवर्क पर जोड़ता है।",
         "btn-truck-owner": "मैं फ्लीट ऑपरेटर हूँ",
         "btn-shipper": "मैं एंटरप्राइज़ शिपर हूँ",
