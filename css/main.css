@@ -541,10 +541,12 @@ p {
 }
 
 .global-logo img {
-    height: 40px;
+    height: 50px;
+    /* Increased size */
     width: auto;
-    filter: brightness(0) invert(1);
-    /* Ensure it's white/visible on dark */
+    /* Invert the image colors (white bg becomes black) and use screen blend mode to drop the black background */
+    filter: invert(1);
+    mix-blend-mode: screen;
 }
 
 .global-nav-menu {
