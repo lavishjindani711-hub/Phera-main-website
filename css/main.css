@@ -541,10 +541,14 @@ p {
 }
 
 .global-logo img {
-    height: 40px;
+    height: 50px;
     width: auto;
-    filter: brightness(0) invert(1);
-    /* Ensure it's white/visible on dark */
+    /* Since the image has a solid white background and black/red logo on a dark-navy header,
+       the best CSS-only approach without altering the image file is to add a bright white 
+       background pill behind it to make it read clearly as a logo block. */
+    background: white;
+    padding: 2px 10px;
+    border-radius: var(--radius-sm);
 }
 
 .global-nav-menu {
