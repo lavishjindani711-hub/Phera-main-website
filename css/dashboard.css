@@ -200,3 +200,54 @@ body.dashboard-layout {
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--clr-gray-200);
 }
+
+/* ==========================================================================
+   WhatsApp Floating Button
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    /* Make perfectly round */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    /* Ensure it stays above everything */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    text-decoration: none;
+    transition: transform var(--trans-fast), box-shadow var(--trans-fast);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    color: #FFF;
+}
+
+.whatsapp-float svg {
+    width: 38px;
+    height: 38px;
+    fill: currentColor;
+}
+
+/* Make it slightly smaller on mobile */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-float svg {
+        width: 32px;
+        height: 32px;
+    }
+}
